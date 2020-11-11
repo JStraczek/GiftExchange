@@ -1,4 +1,5 @@
 function SubmitForm(){
+    if(document.getElementById("passwordInput").value == "ppp"){
     $.ajax({
         url:"https://api.apispreadsheets.com/data/2872/",
         type:'post',
@@ -10,4 +11,9 @@ function SubmitForm(){
           alert("There was an error :(")
         }
     })
+  }
 };
+
+function CheckPassword(){
+
+}
