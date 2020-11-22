@@ -1,25 +1,26 @@
 import unittest
-from script import forbidden_pair, Receiver, get_receiver_list, get_pairings
+from Santa import Santa, Receiver
 
 class TestScriptFunctions(unittest.TestCase):
+    santa = Santa()
 
     def test_forbidden_pair1(self):
-        p1 = Receiver(["Mikołaj", "Fitowski", "blabla", "blabla"])
-        p2 = Receiver(["Klaudia", "Kowal", "blabla", "blabla"])
-        self.assertTrue(forbidden_pair(p2, p1))
+        p1 = Receiver(["John", "Smith", "blabla", "blabla"])
+        p2 = Receiver(["Jan", "Nowak", "blabla", "blabla"])
+        self.assertTrue(self.santa.forbidden_pair(p1, p2))
     
     def test_forbidden_pair2(self):
-        p1 = Receiver(["Szymon", "Fus", "blabla", "blabla"])
-        p2 = Receiver(["Katarzyna", "Kwiatkowska", "blabla", "blabla"])
-        self.assertTrue(forbidden_pair(p2, p1))
+        p1 = Receiver(["May", "Hew", "blabla", "blabla"])
+        p2 = Receiver(["Janurary", "West", "blabla", "blabla"])
+        self.assertTrue(self.santa.forbidden_pair(p2, p1))
 
     def test_get_pairings(self):
-        receivers = get_receiver_list()
-        pairings = list(get_pairings(receivers))
+        self.santa.get_receiver_list()
+        for i in range(10):
+            pairings = list(self.santa.get_pairings())
 
-        for i, j in pairings:
-            self.assertFalse(forbidden_pair(i, j))
-
+            for i, j in pairings:
+                self.assertFalse(self.santa.forbidden_pair(i, j))
 
 
 if __name__ == '__main__':

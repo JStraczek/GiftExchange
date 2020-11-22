@@ -1,7 +1,7 @@
 function SubmitForm(){
-    if(document.getElementById("passwordInput").value == "ppp"){
+    if(document.getElementById("passwordInput").value == "INSERT HERE"){ // INSERT YOUR PASSWORD (IT'S NOT SAFE)
     $.ajax({
-        url:"https://api.apispreadsheets.com/data/2872/",
+        url:"INSERT HERE", // INSERT YOUR SPREADSHEETS API LINK FOR IT TO WORK
         type:'post',
         data:$("#userInputForm").serializeArray(),
         success: function(){
